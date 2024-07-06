@@ -9,7 +9,6 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-
         conditional_layers {
                 compatible = "zmk,conditional-layers";
                 tri_layer {
@@ -32,19 +31,19 @@
                         bindings = <
    &kp ESC   &kp Y &kp C &kp L &kp M &kp K   &kp Z &kp F  &kp U     &kp COMMA &kp SQT  &kp EQUAL
    &kp TAB   &kp I &kp S &kp R &kp T &kp G   &kp P &kp N  &kp E     &kp A     &kp O    &kp MINUS
-   &kp LSHFT &kp Q &kp V &kp W &kp D &kp J   &kp B &kp H  &kp FSLH  &kp DOT   &kp X    &lt 3 BSLH
+   &kp LSHFT &kp Q &kp V &kp W &kp D &kp J   &kp B &kp H  &kp FSLH  &kp DOT   &kp X    &kp BSLH
                    &kp LALT &kp RET &lt 1 SPACE   &lt 2 BSPC &kp LCTRL &kp DEL
                         >;
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
 // | ESC  |  F1  |  F2  |  F3  |  F4  |  F5  |   |  F6  |  F7  |  F8  |  F9  |  F10  |   ~   |
-// | GUI  |      |      |      |      |      |   |  LFT |  DWN |  UP  |  RGT |       |  F11  |
+// | GUI  |      |      |      |      |      |   |  LFT |  DWN |  UP  |  RGT |   `   |  F11  |
 // | CAPS |      |      |      |      |      |   | PSCR | HOME |  END | PGUP | PGDN  |  F12  |
 //                      |  ALT |  ENT |      |   | BKSP | CTRL |  DEL |
                         bindings = <
    &kp ESC   &kp F1 &kp F2 &kp F3 &kp F4 &kp F5   &kp F6 &kp F7 &kp F8 &kp F9 &kp F10   &kp TILDE
-   &kp LGUI  &trans &trans &trans &trans &trans   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans  &kp F11
+   &kp LGUI  &trans &trans &trans &trans &trans   &kp LEFT &kp DOWN &kp UP &kp RIGHT &kp GRAVE  &kp F11
    &kp CAPS  &trans &trans &trans &trans &trans   &kp PSCRN &kp HOME &kp END &kp PG_UP &kp PG_DN  &kp F12
                       &kp LALT  &kp RET &trans   &kp BSPC &kp LCTRL &kp DEL
                         >;
@@ -64,15 +63,28 @@
                 };
                 tri_layer {
 // -----------------------------------------------------------------------------------------
-// |      |     |     |     |     |     |   |     |     |     |     |     |     |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   |     |     |     |     |     |     |
-// |      |     |     |     |     |     |   |     |     |     |     |     |     |
+// |      |     |     |     |     |     |   |     |     |     |     |     |                     |
+// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   |     |     |     |     |     |                     |
+// |      |     |     |     |     |     |   |     |     |     |     |     | TOGGLE_QWERTY_LAYER |
 //                    |     |     |     |   |     |     |     |
                         bindings = <
    &trans   &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans   &trans
    &bt BT_CLR   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &trans &trans &trans &trans &trans &trans
-   &trans   &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans   &trans
+   &trans   &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans   &tog 4
                                 &trans &trans &trans    &trans &trans &trans
+                        >;
+                };
+                qwerty_layer {
+// -----------------------------------------------------------------------------------------
+// |  ESC  |  Q  |  W  |  E  |  R  |  T  |   |  Y   |  U   |  I  |  O  |  P  |  =  |
+// |  TAB  |  A  |  S  |  D  |  F  |  G  |   |  H   |  J   |  K  |  L  |  ;  |  -  |
+// |  SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N   |  M   |  /  |  .  |  ,  |  \  |
+//                     | ALT | ENT | SPC |   | BKSP | CTRL | DEL |
+                        bindings = <
+   &kp ESC    &kp Q &kp W &kp E &kp R &kp T    &kp Y &kp U &kp I &kp O &kp P   &kp EQUAL
+   &kp TAB    &kp A &kp S &kp D &kp F &kp G    &kp H &kp J &kp K &kp L &kp SEMI   &kp MINUS
+   &kp LSHFT  &kp Z &kp X &kp C &kp V &kp B    &kp N &kp M &kp FSLH &kp DOT &kp COMMA   &kp BSLH
+                        &kp LALT &kp RET &lt 1 SPACE   &lt 2 BSPC &kp LCTRL &kp DEL
                         >;
                 };
         };
