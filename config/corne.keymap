@@ -92,6 +92,7 @@
         macros {
         macro_pound: macro_pound {
             compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             label = "Pound Symbol Macro";
             wait-ms = <40>;
             tap-ms = <40>;
